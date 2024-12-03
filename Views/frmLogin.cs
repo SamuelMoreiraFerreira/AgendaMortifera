@@ -34,12 +34,12 @@ namespace AgendaMortifera
             {
                 // Usuário Validado
 
-                tbxUser.Text = "";
-                tbxPassword.Text = "";
-
                 UserSession.Conexao = ConexaoDB.Connection(tbxUser.Text, tbxPassword.Text)!;
 
                 UserSession.UserInfo = new UserController().GetUser(tbxUser.Text)!;
+
+                tbxUser.Text = "";
+                tbxPassword.Text = "";
 
                 frmPerfil screenPerfil = new frmPerfil();
 

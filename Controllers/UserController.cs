@@ -165,7 +165,7 @@ namespace AgendaMortifera.Controllers
             }
         }
 
-        public DataTable GetContatos()
+        public DataTable GetContatosUser()
         {
             MySqlConnection connection = UserSession.Conexao;
 
@@ -239,6 +239,61 @@ namespace AgendaMortifera.Controllers
                     // Dicionário com as informações do usuário
 
                     return returnValue;
+                }
+
+                else
+                {
+                    // Erro
+
+                    return null;
+                }
+            }
+
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+
+                return null;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public List<string>? GetCateoriasUser(string usuario)
+        {
+            MySqlConnection connection = ConexaoDB.Connection();
+
+            try
+            {
+                connection.Open();
+
+                MySqlCommand cmdGetUser = new MySqlCommand(
+                    "SELECT tb_usuarios.pecado, tb_usuarios.nome, tb_usuarios.usuario, tb_usuarios.telefone, tb_usuarios.senha FROM tb_usuarios WHERE tb_usuarios.usuario = @usuario;",
+                    connection
+                );
+
+                cmdGetUser.Parameters.AddWithValue("@usuario", usuario);
+
+                MySqlDataReader result = cmdGetUser.ExecuteReader();
+
+                if (result.Read())
+                {
+                    // Passando os dados do MySqlDataReader para um Dictionary para manter os dados após o fechamento da conexão.
+
+                    // Tipo Object -> Armazena qualquer tipo de dado
+                    Dictionary<string, object> returnValue = new Dictionary<string, object>();
+
+                    for (int i = 0; i < result.FieldCount; i++)
+                    {
+                        returnValue[result.GetName(i)] = result.GetValue(i);
+                    }
+
+                    // Dicionário com as informações do usuário
+
+                    return null;
                 }
 
                 else

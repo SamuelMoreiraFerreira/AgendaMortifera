@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvCategorias = new DataGridView();
-            btnRefreshCategorias = new Button();
             tbxAlterarSenha = new TextBox();
             gbxSeguranca = new GroupBox();
             btnConfirmarSenha = new Button();
             label1 = new Label();
-            btnAdicionarCategoria = new Button();
-            btnEditarCategoria = new Button();
-            btnExcluirCategoria = new Button();
             gbxInfo = new GroupBox();
             label3 = new Label();
             lblPecado = new Label();
@@ -46,33 +41,14 @@
             lblTelefone = new Label();
             label2 = new Label();
             lblNome = new Label();
-            btnContatos = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            btnScreenCategorias = new Button();
+            btnDesconectar = new Button();
+            gbxFuncionalidades = new GroupBox();
+            btnScreenContatos = new Button();
             gbxSeguranca.SuspendLayout();
             gbxInfo.SuspendLayout();
+            gbxFuncionalidades.SuspendLayout();
             SuspendLayout();
-            // 
-            // dgvCategorias
-            // 
-            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCategorias.ColumnHeadersHeight = 25;
-            dgvCategorias.Location = new Point(12, 57);
-            dgvCategorias.Name = "dgvCategorias";
-            dgvCategorias.ReadOnly = true;
-            dgvCategorias.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.Size = new Size(281, 183);
-            dgvCategorias.TabIndex = 2;
-            // 
-            // btnRefreshCategorias
-            // 
-            btnRefreshCategorias.Location = new Point(12, 12);
-            btnRefreshCategorias.Name = "btnRefreshCategorias";
-            btnRefreshCategorias.Size = new Size(281, 39);
-            btnRefreshCategorias.TabIndex = 3;
-            btnRefreshCategorias.Text = "Atualizar";
-            btnRefreshCategorias.UseVisualStyleBackColor = true;
-            btnRefreshCategorias.Click += ButtonRefresh_Click;
             // 
             // tbxAlterarSenha
             // 
@@ -87,7 +63,7 @@
             gbxSeguranca.Controls.Add(btnConfirmarSenha);
             gbxSeguranca.Controls.Add(label1);
             gbxSeguranca.Controls.Add(tbxAlterarSenha);
-            gbxSeguranca.Location = new Point(550, 12);
+            gbxSeguranca.Location = new Point(12, 12);
             gbxSeguranca.Name = "gbxSeguranca";
             gbxSeguranca.Size = new Size(238, 116);
             gbxSeguranca.TabIndex = 7;
@@ -115,36 +91,6 @@
             label1.TabIndex = 7;
             label1.Text = "Alterar Senha";
             // 
-            // btnAdicionarCategoria
-            // 
-            btnAdicionarCategoria.Location = new Point(12, 246);
-            btnAdicionarCategoria.Name = "btnAdicionarCategoria";
-            btnAdicionarCategoria.Size = new Size(89, 89);
-            btnAdicionarCategoria.TabIndex = 8;
-            btnAdicionarCategoria.Text = "ADD";
-            btnAdicionarCategoria.UseVisualStyleBackColor = true;
-            btnAdicionarCategoria.Click += btnAdicionarCategoria_Click;
-            // 
-            // btnEditarCategoria
-            // 
-            btnEditarCategoria.Location = new Point(108, 246);
-            btnEditarCategoria.Name = "btnEditarCategoria";
-            btnEditarCategoria.Size = new Size(89, 89);
-            btnEditarCategoria.TabIndex = 9;
-            btnEditarCategoria.Text = "EDIT";
-            btnEditarCategoria.UseVisualStyleBackColor = true;
-            btnEditarCategoria.Click += btnEditarCategoria_Click;
-            // 
-            // btnExcluirCategoria
-            // 
-            btnExcluirCategoria.Location = new Point(204, 246);
-            btnExcluirCategoria.Name = "btnExcluirCategoria";
-            btnExcluirCategoria.Size = new Size(89, 89);
-            btnExcluirCategoria.TabIndex = 10;
-            btnExcluirCategoria.Text = "DELETE";
-            btnExcluirCategoria.UseVisualStyleBackColor = true;
-            btnExcluirCategoria.Click += btnExcluirCategoria_Click;
-            // 
             // gbxInfo
             // 
             gbxInfo.Controls.Add(label3);
@@ -155,7 +101,7 @@
             gbxInfo.Controls.Add(lblTelefone);
             gbxInfo.Controls.Add(label2);
             gbxInfo.Controls.Add(lblNome);
-            gbxInfo.Location = new Point(550, 140);
+            gbxInfo.Location = new Point(12, 140);
             gbxInfo.Name = "gbxInfo";
             gbxInfo.Size = new Size(238, 118);
             gbxInfo.TabIndex = 11;
@@ -239,53 +185,87 @@
             lblNome.TabIndex = 0;
             lblNome.Text = "null";
             // 
-            // btnContatos
+            // btnScreenCategorias
             // 
-            btnContatos.Location = new Point(356, 57);
-            btnContatos.Name = "btnContatos";
-            btnContatos.Size = new Size(80, 142);
-            btnContatos.TabIndex = 12;
-            btnContatos.Text = "button1";
-            btnContatos.UseVisualStyleBackColor = true;
-            btnContatos.Click += btnContatos_Click;
+            btnScreenCategorias.BackColor = Color.DarkOrange;
+            btnScreenCategorias.FlatStyle = FlatStyle.Popup;
+            btnScreenCategorias.Font = new Font("Comic Sans MS", 12F);
+            btnScreenCategorias.ForeColor = Color.White;
+            btnScreenCategorias.Location = new Point(20, 45);
+            btnScreenCategorias.Name = "btnScreenCategorias";
+            btnScreenCategorias.Size = new Size(186, 71);
+            btnScreenCategorias.TabIndex = 12;
+            btnScreenCategorias.Text = "Categorias";
+            btnScreenCategorias.UseVisualStyleBackColor = false;
+            btnScreenCategorias.Click += btnScreenCategorias_Click;
+            // 
+            // btnDesconectar
+            // 
+            btnDesconectar.BackColor = Color.Brown;
+            btnDesconectar.FlatStyle = FlatStyle.Popup;
+            btnDesconectar.Font = new Font("Comic Sans MS", 12F);
+            btnDesconectar.ForeColor = Color.White;
+            btnDesconectar.Location = new Point(12, 264);
+            btnDesconectar.Name = "btnDesconectar";
+            btnDesconectar.Size = new Size(238, 48);
+            btnDesconectar.TabIndex = 13;
+            btnDesconectar.Text = "DESCONECTAR";
+            btnDesconectar.UseVisualStyleBackColor = false;
+            btnDesconectar.Click += btnDesconectar_Click;
+            // 
+            // gbxFuncionalidades
+            // 
+            gbxFuncionalidades.Controls.Add(btnScreenContatos);
+            gbxFuncionalidades.Controls.Add(btnScreenCategorias);
+            gbxFuncionalidades.Location = new Point(309, 12);
+            gbxFuncionalidades.Name = "gbxFuncionalidades";
+            gbxFuncionalidades.Size = new Size(234, 246);
+            gbxFuncionalidades.TabIndex = 14;
+            gbxFuncionalidades.TabStop = false;
+            gbxFuncionalidades.Text = "Funcionalidades";
+            // 
+            // btnScreenContatos
+            // 
+            btnScreenContatos.BackColor = Color.LimeGreen;
+            btnScreenContatos.FlatStyle = FlatStyle.Popup;
+            btnScreenContatos.Font = new Font("Comic Sans MS", 12F);
+            btnScreenContatos.ForeColor = Color.White;
+            btnScreenContatos.Location = new Point(20, 140);
+            btnScreenContatos.Name = "btnScreenContatos";
+            btnScreenContatos.Size = new Size(186, 71);
+            btnScreenContatos.TabIndex = 13;
+            btnScreenContatos.Text = "Contatos";
+            btnScreenContatos.UseVisualStyleBackColor = false;
+            btnScreenContatos.Click += btnScreenContatos_Click;
             // 
             // frmPerfil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 353);
-            Controls.Add(btnContatos);
+            ClientSize = new Size(555, 324);
+            Controls.Add(gbxFuncionalidades);
+            Controls.Add(btnDesconectar);
             Controls.Add(gbxInfo);
-            Controls.Add(btnExcluirCategoria);
-            Controls.Add(btnEditarCategoria);
-            Controls.Add(btnAdicionarCategoria);
             Controls.Add(gbxSeguranca);
-            Controls.Add(btnRefreshCategorias);
-            Controls.Add(dgvCategorias);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "frmPerfil";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             Load += frmPerfil_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
             gbxSeguranca.ResumeLayout(false);
             gbxSeguranca.PerformLayout();
             gbxInfo.ResumeLayout(false);
             gbxInfo.PerformLayout();
+            gbxFuncionalidades.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private DataGridView dgvCategorias;
-        private Button btnRefreshCategorias;
         private TextBox tbxAlterarSenha;
         private GroupBox gbxSeguranca;
         private Label label1;
         private Button btnConfirmarSenha;
-        private Button btnAdicionarCategoria;
-        private Button btnEditarCategoria;
-        private Button btnExcluirCategoria;
         private GroupBox gbxInfo;
         private Label label3;
         private Label lblPecado;
@@ -295,6 +275,9 @@
         private Label lblTelefone;
         private Label label2;
         private Label lblNome;
-        private Button btnContatos;
+        private Button btnScreenCategorias;
+        private Button btnDesconectar;
+        private GroupBox gbxFuncionalidades;
+        private Button btnScreenContatos;
     }
 }

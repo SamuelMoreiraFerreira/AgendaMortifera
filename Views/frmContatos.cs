@@ -20,12 +20,20 @@ namespace AgendaMortifera.Views
 
         private void AtualizarDgvContatos()
         {
-            
+
         }
 
         private void frmContatos_Load(object sender, EventArgs e)
         {
             this.AtualizarDgvContatos();
         }
+
+        // Adicionar Contato
+        private void btnAdicionarContato_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        // Remover Contato
     }
 }
