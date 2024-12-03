@@ -28,22 +28,15 @@ namespace AgendaMortifera
             }
         }
 
-        private void btnSign_Click(object sender, EventArgs e)
-        {
-            frmCadastrar screenCadastro = new frmCadastrar();
-
-            screenCadastro.ShowDialog();
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (new UserController().ValidateUser(tbxUser.Text, tbxPassword.Text))
             {
                 // Usuário Validado
 
-                UserSession.Conexao = ConexaoDB.Connection(tbxUser.Text, tbxPassword.Text);
+                UserSession.Conexao = ConexaoDB.Connection(tbxUser.Text, tbxPassword.Text)!;
 
-                UserSession.UserInfo = new UserController().GetUser(tbxUser.Text);
+                UserSession.UserInfo = new UserController().GetUser(tbxUser.Text)!;
 
                 frmPerfil screenPerfil = new frmPerfil();
 
@@ -60,6 +53,13 @@ namespace AgendaMortifera
 
                 MessageBox.Show("Usuário ou senha incorreta.", "Tente Novamente!");
             }
+        }
+
+        private void lblCadastrar_Click(object sender, EventArgs e)
+        {
+            frmCadastrar screenCadastro = new frmCadastrar();
+
+            screenCadastro.ShowDialog();
         }
     }
 }

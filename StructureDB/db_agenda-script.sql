@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS db_agenda;
+DROP USER IF EXISTS "admin"@"%";
+
 CREATE DATABASE IF NOT EXISTS db_agenda;
 
 USE db_agenda;
