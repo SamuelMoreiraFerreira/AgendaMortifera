@@ -54,7 +54,7 @@ namespace AgendaMortifera.Views
             {
                 // Editando Categoria
 
-                if (new CategoriaController().ModifyCategoria(this.editCategoriaID, this.presetName))
+                if (new CategoriaController().ModifyCategoria(this.editCategoriaID, tbxNomeCategoria.Text))
                 {
                     // Sucesso
 
