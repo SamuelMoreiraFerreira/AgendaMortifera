@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPerfil));
             tbxAlterarSenha = new TextBox();
             gbxSeguranca = new GroupBox();
             btnConfirmarSenha = new Button();
@@ -248,6 +249,7 @@
             Controls.Add(gbxInfo);
             Controls.Add(gbxSeguranca);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmPerfil";
             StartPosition = FormStartPosition.CenterScreen;

@@ -380,5 +380,47 @@ namespace AgendaMortifera.Controllers
                 return null;
             }
         }
+
+        public DataTable GetContatos()
+        {
+            MySqlConnection connection = UserSession.Conexao;
+
+            if (connection != null)
+            {
+                try
+                {
+                    connection.Open();
+
+                    MySqlDataAdapter adpGetContatos = new MySqlDataAdapter(
+                        "SELECT tb_contatos.id_contato AS 'ID', tb_contatos.nome AS 'Nome', tb_contatos.endereco AS 'Endereço', tb_contatos.email AS 'E-Mail' FROM tb_contatos WHERE tb_contatos.usuario = SUBSTRING_INDEX(USER(), '@', 1);",
+                        connection
+                    );
+
+                    DataTable table = new DataTable();
+
+                    adpGetContatos.Fill(table);
+
+                    // Tabela contendo os contatos
+                    return table;
+                }
+
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+
+                    return new DataTable();
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            else
+            {
+                return new DataTable();
+            }
+        }
     }
 }

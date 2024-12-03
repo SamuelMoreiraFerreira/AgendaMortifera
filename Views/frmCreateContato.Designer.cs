@@ -1,6 +1,6 @@
 ﻿namespace AgendaMortifera.Views
 {
-    partial class FormCreateContato
+    partial class frmCreateContato
     {
         /// <summary>
         /// Required designer variable.

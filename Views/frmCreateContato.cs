@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AgendaMortifera.Views
 {
-    public partial class FormCreateContato : Form
+    public partial class frmCreateContato : Form
     {
-        public FormCreateContato()
+        public frmCreateContato()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace AgendaMortifera.Views
 {
-    partial class frmAddCategoria
+    partial class frmFormsCategoria
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             tbxNomeCategoria = new TextBox();
-            btnAddCategoria = new Button();
+            btnConfirmar = new Button();
             btnCancelar = new Button();
             SuspendLayout();
             // 
@@ -42,19 +42,19 @@
             tbxNomeCategoria.Size = new Size(403, 33);
             tbxNomeCategoria.TabIndex = 1;
             // 
-            // btnAddCategoria
+            // btnConfirmar
             // 
-            btnAddCategoria.BackColor = Color.IndianRed;
-            btnAddCategoria.FlatStyle = FlatStyle.Popup;
-            btnAddCategoria.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAddCategoria.ForeColor = Color.White;
-            btnAddCategoria.Location = new Point(12, 72);
-            btnAddCategoria.Name = "btnAddCategoria";
-            btnAddCategoria.Size = new Size(403, 48);
-            btnAddCategoria.TabIndex = 2;
-            btnAddCategoria.Text = "ADICIONAR CATEGORIA";
-            btnAddCategoria.UseVisualStyleBackColor = false;
-            btnAddCategoria.Click += btnAddCategoria_Click;
+            btnConfirmar.BackColor = Color.IndianRed;
+            btnConfirmar.FlatStyle = FlatStyle.Popup;
+            btnConfirmar.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConfirmar.ForeColor = Color.White;
+            btnConfirmar.Location = new Point(12, 72);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(403, 48);
+            btnConfirmar.TabIndex = 2;
+            btnConfirmar.Text = "CONFIRMAR";
+            btnConfirmar.UseVisualStyleBackColor = false;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnCancelar
             // 
@@ -70,26 +70,27 @@
             btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // frmAddCategoria
+            // frmFormsCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(427, 173);
             Controls.Add(btnCancelar);
-            Controls.Add(btnAddCategoria);
+            Controls.Add(btnConfirmar);
             Controls.Add(tbxNomeCategoria);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "frmAddCategoria";
+            Name = "frmFormsCategoria";
             Text = "Adicionar Categoria";
+            Load += frmCreateCategoria_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private TextBox tbxNomeCategoria;
-        private Button btnAddCategoria;
+        private Button btnConfirmar;
         private Button btnCancelar;
     }
 }

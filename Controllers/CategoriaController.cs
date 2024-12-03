@@ -117,6 +117,60 @@ namespace AgendaMortifera.Controllers
             }
         }
 
+        public bool ModifyCategoria(int idCategoria, string novoNome)
+        {
+            MySqlConnection connection = UserSession.Conexao;
+
+            if (connection != null)
+            {
+                try
+                {
+                    connection.Open();
+
+                    MySqlCommand cmdUpdateCategoria = new MySqlCommand(
+                        "UPDATE tb_categorias SET tb_categorias.categoria = @novoNome WHERE tb_categorias.id_categoria = @idCategoria;",
+                        connection
+                    );
+
+                    cmdUpdateCategoria.Parameters.AddWithValue("@novoNome", novoNome);
+
+                    cmdUpdateCategoria.Parameters.AddWithValue("@idCategoria", idCategoria);
+
+                    if (cmdUpdateCategoria.ExecuteNonQuery() > 0)
+                    {
+                        // Nome da categoria alterado
+
+                        return true;
+                    }
+
+                    else
+                    {
+                        // Erro
+
+                        return false;
+                    }
+
+                }
+
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+
+                    return false;
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
         public DataTable GetCategorias()
         {
             MySqlConnection connection = UserSession.Conexao;
