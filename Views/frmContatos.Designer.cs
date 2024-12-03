@@ -46,6 +46,7 @@
             btnFechar.TabIndex = 10;
             btnFechar.Text = "FECHAR";
             btnFechar.UseVisualStyleBackColor = true;
+            btnFechar.Click += btnFechar_Click;
             // 
             // btnDeleteContato
             // 
@@ -57,6 +58,7 @@
             btnDeleteContato.TabIndex = 9;
             btnDeleteContato.Text = "APAGAR";
             btnDeleteContato.UseVisualStyleBackColor = true;
+            btnDeleteContato.Click += btnDeleteContato_Click;
             // 
             // btnEditarContato
             // 
@@ -68,6 +70,7 @@
             btnEditarContato.TabIndex = 8;
             btnEditarContato.Text = "EDITAR";
             btnEditarContato.UseVisualStyleBackColor = true;
+            btnEditarContato.Click += btnEditarContato_Click;
             // 
             // btnCreateContato
             // 
@@ -79,6 +82,7 @@
             btnCreateContato.TabIndex = 7;
             btnCreateContato.Text = "CRIAR";
             btnCreateContato.UseVisualStyleBackColor = true;
+            btnCreateContato.Click += btnAdicionarContato_Click;
             // 
             // dgvContatos
             // 

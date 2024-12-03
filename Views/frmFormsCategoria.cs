@@ -17,7 +17,7 @@ namespace AgendaMortifera.Views
     public partial class frmFormsCategoria : Form
     {
         public int editCategoriaID = 0;
-        public string presetName = "";
+        public string presetCategoria = "";
 
         public frmFormsCategoria()
         {
@@ -37,7 +37,7 @@ namespace AgendaMortifera.Views
 
                 this.Text = "Editando Categoria";
 
-                tbxNomeCategoria.Text = this.presetName;
+                tbxNomeCategoria.Text = this.presetCategoria;
             }
 
             else

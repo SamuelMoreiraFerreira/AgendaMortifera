@@ -67,7 +67,7 @@ namespace AgendaMortifera.Controllers
             }
         }
 
-        public bool DeleteContato(string idContato)
+        public bool DeleteContato(int idContato)
         {
             MySqlConnection connection = UserSession.Conexao;
 
@@ -119,6 +119,64 @@ namespace AgendaMortifera.Controllers
             }
         }
 
+        public bool ModifyContato(int idContato, string nome, string telefone, int idCategoria)
+        {
+            MySqlConnection connection = UserSession.Conexao;
+
+            if (connection != null)
+            {
+                try
+                {
+                    connection.Open();
+
+                    MySqlCommand cmdUpdateContato = new MySqlCommand(
+                        "UPDATE tb_contatos SET tb_contatos.nome = @nome, tb_contatos.telefone = @telefone, tb_contatos.id_categoria = @idCategoria WHERE tb_contatos.id_contato = @idContato;",
+                        connection
+                    );
+
+                    cmdUpdateContato.Parameters.AddWithValue("@nome", nome);
+
+                    cmdUpdateContato.Parameters.AddWithValue("@telefone", telefone);
+
+                    cmdUpdateContato.Parameters.AddWithValue("@idCategoria", idCategoria);
+
+                    cmdUpdateContato.Parameters.AddWithValue("@idContato", idContato);
+
+                    if (cmdUpdateContato.ExecuteNonQuery() > 0)
+                    {
+                        // Informações do contato alterados
+
+                        return true;
+                    }
+
+                    else
+                    {
+                        // Erro
+
+                        return false;
+                    }
+
+                }
+
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+
+                    return false;
+                }
+
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
         public DataTable GetContatos()
         {
             MySqlConnection connection = UserSession.Conexao;
@@ -130,7 +188,7 @@ namespace AgendaMortifera.Controllers
                     connection.Open();
 
                     MySqlDataAdapter adpGetContatos = new MySqlDataAdapter(
-                        "SELECT tb_contatos.id_contato AS 'ID', tb_contatos.nome AS 'Nome', tb_contatos.endereco AS 'Endereço', tb_contatos.email AS 'E-Mail' FROM tb_contatos WHERE tb_contatos.usuario = SUBSTRING_INDEX(USER(), '@', 1);",
+                        "SELECT tb_contatos.id_contato AS 'ID', tb_contatos.nome AS 'Nome', tb_contatos.telefone AS 'Telefone', tb_categorias.categoria AS 'Categoria' FROM tb_contatos INNER JOIN tb_categorias ON tb_contatos.id_categoria = tb_categorias.id_categoria WHERE tb_contatos.usuario = SUBSTRING_INDEX(USER(), '@', 1);",
                         connection
                     );
 

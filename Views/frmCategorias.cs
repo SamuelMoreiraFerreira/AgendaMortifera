@@ -45,7 +45,7 @@ namespace AgendaMortifera.Views
                 frmFormsCategoria screenCreateCategoria = new frmFormsCategoria
                 {
                     editCategoriaID = Convert.ToInt32(dgvCategorias.SelectedRows[0].Cells["ID"].Value),
-                    presetName = dgvCategorias.SelectedRows[0].Cells["Categoria"].Value.ToString()!
+                    presetCategoria = dgvCategorias.SelectedRows[0].Cells["Categoria"].Value.ToString()!
                 };
 
                 screenCreateCategoria.ShowDialog();
