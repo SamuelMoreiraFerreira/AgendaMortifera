@@ -115,7 +115,7 @@
             MaximizeBox = false;
             Name = "frmCategorias";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmCategorias";
+            Text = "Dashboard - Categorias";
             Load += frmCategorias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
             ResumeLayout(false);

@@ -28,72 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            btnAdicionarContato = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnFechar = new Button();
+            btnDeleteContato = new Button();
+            btnEditarContato = new Button();
+            btnCreateContato = new Button();
+            dgvContatos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // btnFechar
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(366, 352);
-            dataGridView1.TabIndex = 0;
+            btnFechar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnFechar.Font = new Font("Comic Sans MS", 12F);
+            btnFechar.Location = new Point(12, 355);
+            btnFechar.Name = "btnFechar";
+            btnFechar.Size = new Size(316, 59);
+            btnFechar.TabIndex = 10;
+            btnFechar.Text = "FECHAR";
+            btnFechar.UseVisualStyleBackColor = true;
             // 
-            // btnAdicionarContato
+            // btnDeleteContato
             // 
-            btnAdicionarContato.Location = new Point(12, 370);
-            btnAdicionarContato.Name = "btnAdicionarContato";
-            btnAdicionarContato.Size = new Size(366, 53);
-            btnAdicionarContato.TabIndex = 1;
-            btnAdicionarContato.Text = "Criar Contato";
-            btnAdicionarContato.UseVisualStyleBackColor = true;
-            btnAdicionarContato.Click += btnAdicionarContato_Click;
+            btnDeleteContato.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnDeleteContato.Font = new Font("Comic Sans MS", 12F);
+            btnDeleteContato.Location = new Point(227, 283);
+            btnDeleteContato.Name = "btnDeleteContato";
+            btnDeleteContato.Size = new Size(101, 66);
+            btnDeleteContato.TabIndex = 9;
+            btnDeleteContato.Text = "APAGAR";
+            btnDeleteContato.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnEditarContato
             // 
-            button1.Location = new Point(12, 429);
-            button1.Name = "button1";
-            button1.Size = new Size(366, 53);
-            button1.TabIndex = 5;
-            button1.Text = "Apagar Contato";
-            button1.UseVisualStyleBackColor = true;
+            btnEditarContato.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnEditarContato.Font = new Font("Comic Sans MS", 12F);
+            btnEditarContato.Location = new Point(120, 283);
+            btnEditarContato.Name = "btnEditarContato";
+            btnEditarContato.Size = new Size(101, 66);
+            btnEditarContato.TabIndex = 8;
+            btnEditarContato.Text = "EDITAR";
+            btnEditarContato.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCreateContato
             // 
-            button2.Location = new Point(12, 488);
-            button2.Name = "button2";
-            button2.Size = new Size(366, 53);
-            button2.TabIndex = 6;
-            button2.Text = "Editar Contato";
-            button2.UseVisualStyleBackColor = true;
+            btnCreateContato.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCreateContato.Font = new Font("Comic Sans MS", 12F);
+            btnCreateContato.Location = new Point(13, 283);
+            btnCreateContato.Name = "btnCreateContato";
+            btnCreateContato.Size = new Size(101, 66);
+            btnCreateContato.TabIndex = 7;
+            btnCreateContato.Text = "CRIAR";
+            btnCreateContato.UseVisualStyleBackColor = true;
+            // 
+            // dgvContatos
+            // 
+            dgvContatos.AllowUserToAddRows = false;
+            dgvContatos.AllowUserToDeleteRows = false;
+            dgvContatos.AllowUserToResizeColumns = false;
+            dgvContatos.AllowUserToResizeRows = false;
+            dgvContatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvContatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvContatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvContatos.Location = new Point(12, 12);
+            dgvContatos.MultiSelect = false;
+            dgvContatos.Name = "dgvContatos";
+            dgvContatos.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvContatos.Size = new Size(316, 265);
+            dgvContatos.TabIndex = 6;
             // 
             // frmContatos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.IndianRed;
-            ClientSize = new Size(390, 554);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btnAdicionarContato);
-            Controls.Add(dataGridView1);
+            BackColor = Color.White;
+            ClientSize = new Size(340, 426);
+            Controls.Add(btnFechar);
+            Controls.Add(btnDeleteContato);
+            Controls.Add(btnEditarContato);
+            Controls.Add(btnCreateContato);
+            Controls.Add(dgvContatos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmContatos";
-            Text = "frmContatos";
+            Text = "Dashboard - Contatos";
             Load += frmContatos_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvContatos).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Button btnAdicionarContato;
-        private Button button1;
-        private Button button2;
+        private Button btnFechar;
+        private Button btnDeleteContato;
+        private Button btnEditarContato;
+        private Button btnCreateContato;
+        private DataGridView dgvContatos;
     }
 }
