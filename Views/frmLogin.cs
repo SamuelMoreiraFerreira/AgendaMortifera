@@ -34,6 +34,9 @@ namespace AgendaMortifera
             {
                 // Usuário Validado
 
+                tbxUser.Text = "";
+                tbxPassword.Text = "";
+
                 UserSession.Conexao = ConexaoDB.Connection(tbxUser.Text, tbxPassword.Text)!;
 
                 UserSession.UserInfo = new UserController().GetUser(tbxUser.Text)!;
@@ -44,7 +47,7 @@ namespace AgendaMortifera
 
                 screenPerfil.ShowDialog();
 
-                this.Close();
+                this.Show();
             }
 
             else

@@ -45,7 +45,7 @@ namespace AgendaMortifera.Controllers
         // Alterar Senha
         private void btnConfirmarSenha_Click(object sender, EventArgs e)
         {
-            if (new UserController().ModifySenha("oi", tbxAlterarSenha.Text))
+            if (new UserController().ModifySenha(UserSession.UserInfo["usuario"].ToString()!, tbxAlterarSenha.Text))
             {
                 this.Close();
 

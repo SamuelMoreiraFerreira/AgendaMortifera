@@ -20,7 +20,7 @@ namespace AgendaMortifera.Views
 
         private void AtualizarDgvContatos()
         {
-            dgvContatos.DataSource = new UserController().GetContatos();
+            
         }
 
         private void frmContatos_Load(object sender, EventArgs e)
