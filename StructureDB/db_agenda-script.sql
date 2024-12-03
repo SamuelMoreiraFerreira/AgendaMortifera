@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS tb_logs (
 
 -- USUÁRIO ADMIN
 
-INSERT INTO tb_usuarios VALUES ("Ganância", "belzebu", "admin", "666-777", "admin123");
+INSERT INTO tb_usuarios VALUES ("Ganância", "Belzebu", "admin", "(16) 66666-7777", "admin123");
 
 CREATE USER 'admin'@'%' IDENTIFIED BY 'admin123';
 GRANT ALL PRIVILEGES ON db_agenda.* TO 'admin'@'%' WITH GRANT OPTION;
