@@ -15,6 +15,20 @@ CREATE TABLE IF NOT EXISTS tb_usuarios (
     senha VARCHAR(20) NOT NULL
 );
 
+-- TABELA DE CATEGORIAS
+
+CREATE TABLE IF NOT EXISTS tb_categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    categoria VARCHAR(100) NOT NULL,
+
+    CONSTRAINT fk_usuarios_categorias
+    FOREIGN KEY (usuario)
+    REFERENCES tb_usuarios(usuario)
+    ON DELETE CASCADE
+);
+
+
 -- TABELA DE CONTATOS
 
 CREATE TABLE IF NOT EXISTS tb_contatos (
@@ -32,19 +46,6 @@ CREATE TABLE IF NOT EXISTS tb_contatos (
     CONSTRAINT fk_categorias_contatos
     FOREIGN KEY (id_categoria)
     REFERENCES tb_categorias (id_categoria)
-    ON DELETE CASCADE
-);
-
--- TABELA DE CATEGORIAS
-
-CREATE TABLE IF NOT EXISTS tb_categorias (
-    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
-    usuario VARCHAR(50) NOT NULL,
-    categoria VARCHAR(100) NOT NULL,
-
-    CONSTRAINT fk_usuarios_categorias
-    FOREIGN KEY (usuario)
-    REFERENCES tb_usuarios(usuario)
     ON DELETE CASCADE
 );
 
