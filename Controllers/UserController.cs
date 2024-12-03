@@ -25,7 +25,7 @@ namespace AgendaMortifera.Controllers
                     $@"
                         INSERT INTO tb_usuarios VALUES (@pecado, @nome, @usuario, @telefone, @senha);
                         CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';
-                        GRANT SELECT ON db_agenda.tb_categorias TO '{usuario}'@'%';
+                        GRANT ALL PRIVILEGES ON db_agenda.* TO '{usuario}'@'%';
                     ",
                     connection
                 );
