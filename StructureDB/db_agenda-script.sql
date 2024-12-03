@@ -20,27 +20,18 @@ CREATE TABLE IF NOT EXISTS tb_usuarios (
 CREATE TABLE IF NOT EXISTS tb_contatos (
     id_contato INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    endereco VARCHAR(50),
-    email VARCHAR(50) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
     usuario VARCHAR(50),
+    id_categoria INT,
 
     CONSTRAINT fk_usuarios_contatos
     FOREIGN KEY (usuario)
     REFERENCES tb_usuarios (usuario)
-    ON DELETE CASCADE
-);
-
--- TABELA DE TELEFONES
-
-CREATE TABLE IF NOT EXISTS tb_telefones (
-    id_telefone INT AUTO_INCREMENT PRIMARY KEY,
-    telefone VARCHAR(15) NOT NULL,
-    descricao VARCHAR(250),
-    id_contato INT NOT NULL,
-
-    CONSTRAINT fk_contatos_telefones
-    FOREIGN KEY (id_contato)
-    REFERENCES tb_contatos (id_contato)
+    ON DELETE CASCADE,
+    
+    CONSTRAINT fk_categorias_contatos
+    FOREIGN KEY (id_categoria)
+    REFERENCES tb_categorias (id_categoria)
     ON DELETE CASCADE
 );
 
@@ -54,24 +45,6 @@ CREATE TABLE IF NOT EXISTS tb_categorias (
     CONSTRAINT fk_usuarios_categorias
     FOREIGN KEY (usuario)
     REFERENCES tb_usuarios(usuario)
-    ON DELETE CASCADE
-);
-
--- TABELA DE AFINIDADES
-
-CREATE TABLE IF NOT EXISTS tb_afinidades (
-    id_afinidade INT AUTO_INCREMENT PRIMARY KEY,
-    id_contato INT NOT NULL,
-    id_categoria INT NOT NULL,
-
-    CONSTRAINT fk_contatos_afinidades
-    FOREIGN KEY (id_contato)
-    REFERENCES tb_contatos(id_contato)
-    ON DELETE CASCADE,
-
-    CONSTRAINT fk_categorias_afinidades
-    FOREIGN KEY (id_categoria)
-    REFERENCES tb_categorias(id_categoria)
     ON DELETE CASCADE
 );
 
@@ -177,7 +150,67 @@ CREATE TRIGGER tr_log_update_categoria
 BEGIN
     INSERT INTO tb_logs (usuario, descricao) VALUES (
         USER(),
-        CONCAT("NOME DA CATEGORIA ALTERADO DE: ", OLD.categoria, " PARA: ", NEW.categoria)
+        CONCAT("NOME DA CATEGORIA ALTERADO DE: ", OLD.categoria, " PARA: ", NEW.categoria, " PROPRIETÁRIO:", OLD.usuario)
+    );
+END;
+
+$$
+
+DELIMITER ;
+
+-- TRIGGER LOG INSERT CONTATO
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_insert_contato
+    AFTER
+    INSERT
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("NOVO CONTATO INSERIDO: ", NEW.nome, " PROPRIETÁRIO: ", NEW.usuario)
+    );
+END;
+
+$$
+
+DELIMITER ;
+
+-- TRIGGER LOG DELETE CONTATO
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_delete_contato
+    AFTER
+    DELETE
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("CONTATO DELETADO: ", OLD.nome, " PROPRIETÁRIO: ", OLD.usuario)
+    );
+END;
+
+$$
+
+DELIMITER ;
+
+-- TRIGGER LOG UPDATE CONTATO
+
+DELIMITER $$
+
+CREATE TRIGGER tr_log_update_contato
+    AFTER
+    UPDATE
+    ON tb_contatos
+    FOR EACH ROW
+BEGIN
+    INSERT INTO tb_logs (usuario, descricao) VALUES (
+        USER(),
+        CONCAT("CONTATO ALTERADO DE: ", OLD.nome, " PARA: ", NEW.nome, " PROPRIETÁRIO: ", OLD.usuario)
     );
 END;
 
